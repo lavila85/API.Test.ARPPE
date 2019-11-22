@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "723a35c7-632a-4a95-8c73-9c2a354007d0",
+		"name": "Test API ARPPE.Backend",
+		"description": "Pruebas Macro API ARPPE.Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetMenu",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d4f3d191-d898-4431-882b-68bc2fc1ce79",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "435fcc84-6d37-4273-95c1-3d140187e467",
+						"exec": [
+							"pm.test(\"Respuesta Exitosa!\", function(){",
+							"pm.response.to.have.status(200);  ",
+							"});",
+							"pm.test(\"La respuesta debe ser valida y tener un cuerpo\", function()",
+							"{",
+							"    pm.response.to.be.ok;",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"pm.test('El estado de la solicitud es 200', function()",
+							"{",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test('La respuesta deb ser JSON',()=>{",
+							"    pm.response.to.be.json;",
+							"});",
+							"pm.test('El cuerpo de la peticion tiene un campo displayName',()=>{",
+							"    pm.expect(pm.environment.get(\"displayName\"));",
+							"});",
+							"pm.test('La respuesta debe ser inferior a los 3 segundos',()=>{",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"IdUsuario\":\"{{userid}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/menu/GetMenu",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"menu",
+						"GetMenu"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9060ae07-d154-419e-b0cf-11b93dda83c6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0de81daa-b6d3-4e4f-9eb5-3dbd62d8b935",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Respuesta Exitosa!\", function(){",
+					"pm.response.to.have.status(200);  ",
+					"});",
+					"pm.test(\"La respuesta debe ser valida y tener un cuerpo\", function()",
+					"{",
+					"    pm.response.to.be.ok;",
+					"    pm.response.to.be.withBody;",
+					"    pm.response.to.be.json;",
+					"});",
+					"pm.test('El estado de la solicitud es 200', function()",
+					"{",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"pm.test('La respuesta deb ser JSON',()=>{",
+					"    pm.response.to.be.json;",
+					"});",
+					"pm.test('El cuerpo de la peticion tiene un campo displayName',()=>{",
+					"    pm.expect(pm.environment.get(\"displayName\"));",
+					"});",
+					"pm.test('La respuesta debe ser inferior a los 3 segundos',()=>{",
+					"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+					"});"
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

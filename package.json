@@ -1,0 +1,24 @@
+{
+  "name": "workspace-jenkins-postman",
+  "version": "1.0.0",
+  "description": "Proyecto Test API",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "api-test-production": "newman run test/ARPPE.Backend.postman_collection.json --insecure -e variables.postman_globals"
+  },
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/lavila85/API.Test.ARPPE.git"
+  },
+  "author": "Luis Avila",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lavila85/API.Test.ARPPE/issues"
+  },
+  "homepage": "https://github.com/lavila85/API.Test.ARPPE#readme",
+  "dependencies": {
+    "newman": "^4.5.6"
+  }
+}
